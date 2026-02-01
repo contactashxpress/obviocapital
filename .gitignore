@@ -1,0 +1,46 @@
+# Environnements virtuels
+.venv/
+venv/
+env/
+
+# Variables d'environnement
+.env
+.env.local
+.env.production
+
+# Python
+*.pyc
+*.pyo
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Base de données
+db.sqlite3
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Fichiers statiques collectés (générés par collectstatic)
+staticfiles/
+
+# Médias uploadés
+media/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tests et couverture
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/

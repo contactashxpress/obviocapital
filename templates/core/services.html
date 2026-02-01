@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block title %}{{ t.nav_services }} - OBVIO Capital{% endblock %}
+
+{% block content %}
+<!-- Page Header with Background Image -->
+<section class="relative min-h-[50vh] flex items-center bg-primary-950 text-white overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1920&q=80" 
+             alt="Services" 
+             class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-950 via-primary-950/95 to-primary-950/80"></div>
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 lg:py-28 w-full">
+        <div class="max-w-3xl animate-on-scroll {% if is_rtl %}mr-0 ml-auto text-right{% endif %}">
+            <div class="divider-gold mb-6 {% if is_rtl %}mr-0 ml-auto{% endif %}"></div>
+            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-semibold mb-6">
+                {{ t.services_title }}
+            </h1>
+            <p class="text-lg md:text-xl text-primary-200 leading-relaxed">
+                {{ t.services_subtitle }}
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Services Detail -->
+<section class="py-20 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <!-- Service 1 - Investor Matching -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 lg:mb-32 animate-on-scroll">
+            <div class="{% if is_rtl %}order-2{% endif %}">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-accent-400/10 border border-accent-400/30 rounded-full mb-6">
+                    <span class="text-accent-500 font-semibold">01</span>
+                </div>
+                <h2 class="font-display text-3xl md:text-4xl font-semibold text-primary-900 mb-6">
+                    {{ t.service_1_title }}
+                </h2>
+                <p class="text-lg text-primary-600 leading-relaxed mb-8">
+                    {{ t.service_1_desc }}
+                </p>
+                <ul class="space-y-4 mb-8">
+                    {% for feature in t.service_1_features %}
+                    <li class="flex items-center gap-3 {% if is_rtl %}flex-row-reverse{% endif %}">
+                        <div class="w-6 h-6 bg-accent-400 rounded-full flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-primary-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-primary-700">{{ feature }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'core:contact' %}" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-900 text-white font-semibold rounded-lg hover:bg-primary-800 transition-colors">
+                    {{ t.hero_cta_primary }}
+                </a>
+            </div>
+            <div class="{% if is_rtl %}order-1{% endif %}">
+                <img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?auto=format&fit=crop&w=800&q=80" 
+                     alt="{{ t.service_1_title }}" 
+                     class="rounded-2xl shadow-2xl w-full">
+            </div>
+        </div>
+
+        <!-- Service 2 - Funding Preparation -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 lg:mb-32 animate-on-scroll">
+            <div class="order-2 lg:order-1 {% if is_rtl %}lg:order-2{% endif %}">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" 
+                     alt="{{ t.service_2_title }}" 
+                     class="rounded-2xl shadow-2xl w-full">
+            </div>
+            <div class="order-1 lg:order-2 {% if is_rtl %}lg:order-1{% endif %}">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-accent-400/10 border border-accent-400/30 rounded-full mb-6">
+                    <span class="text-accent-500 font-semibold">02</span>
+                </div>
+                <h2 class="font-display text-3xl md:text-4xl font-semibold text-primary-900 mb-6">
+                    {{ t.service_2_title }}
+                </h2>
+                <p class="text-lg text-primary-600 leading-relaxed mb-8">
+                    {{ t.service_2_desc }}
+                </p>
+                <ul class="space-y-4 mb-8">
+                    {% for feature in t.service_2_features %}
+                    <li class="flex items-center gap-3 {% if is_rtl %}flex-row-reverse{% endif %}">
+                        <div class="w-6 h-6 bg-accent-400 rounded-full flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-primary-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-primary-700">{{ feature }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'core:contact' %}" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-900 text-white font-semibold rounded-lg hover:bg-primary-800 transition-colors">
+                    {{ t.hero_cta_primary }}
+                </a>
+            </div>
+        </div>
+
+        <!-- Service 3 - Financial Engineering -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 lg:mb-32 animate-on-scroll">
+            <div class="{% if is_rtl %}order-2{% endif %}">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-accent-400/10 border border-accent-400/30 rounded-full mb-6">
+                    <span class="text-accent-500 font-semibold">03</span>
+                </div>
+                <h2 class="font-display text-3xl md:text-4xl font-semibold text-primary-900 mb-6">
+                    {{ t.service_3_title }}
+                </h2>
+                <p class="text-lg text-primary-600 leading-relaxed mb-8">
+                    {{ t.service_3_desc }}
+                </p>
+                <ul class="space-y-4 mb-8">
+                    {% for feature in t.service_3_features %}
+                    <li class="flex items-center gap-3 {% if is_rtl %}flex-row-reverse{% endif %}">
+                        <div class="w-6 h-6 bg-accent-400 rounded-full flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-primary-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-primary-700">{{ feature }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'core:contact' %}" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-900 text-white font-semibold rounded-lg hover:bg-primary-800 transition-colors">
+                    {{ t.hero_cta_primary }}
+                </a>
+            </div>
+            <div class="{% if is_rtl %}order-1{% endif %}">
+                <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?auto=format&fit=crop&w=800&q=80" 
+                     alt="{{ t.service_3_title }}" 
+                     class="rounded-2xl shadow-2xl w-full">
+            </div>
+        </div>
+
+        <!-- Service 4 - Alternative Funding -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center animate-on-scroll">
+            <div class="order-2 lg:order-1 {% if is_rtl %}lg:order-2{% endif %}">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" 
+                     alt="{{ t.service_4_title }}" 
+                     class="rounded-2xl shadow-2xl w-full">
+            </div>
+            <div class="order-1 lg:order-2 {% if is_rtl %}lg:order-1{% endif %}">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-accent-400/10 border border-accent-400/30 rounded-full mb-6">
+                    <span class="text-accent-500 font-semibold">04</span>
+                </div>
+                <h2 class="font-display text-3xl md:text-4xl font-semibold text-primary-900 mb-6">
+                    {{ t.service_4_title }}
+                </h2>
+                <p class="text-lg text-primary-600 leading-relaxed mb-8">
+                    {{ t.service_4_desc }}
+                </p>
+                <ul class="space-y-4 mb-8">
+                    {% for feature in t.service_4_features %}
+                    <li class="flex items-center gap-3 {% if is_rtl %}flex-row-reverse{% endif %}">
+                        <div class="w-6 h-6 bg-accent-400 rounded-full flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-primary-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-primary-700">{{ feature }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'core:contact' %}" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-900 text-white font-semibold rounded-lg hover:bg-primary-800 transition-colors">
+                    {{ t.hero_cta_primary }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="relative py-24 lg:py-32 text-white overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80" 
+             alt="Success" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-primary-900/90"></div>
+    </div>
+    
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center animate-on-scroll">
+        <div class="divider-gold mx-auto mb-6"></div>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold mb-6">
+            {{ t.cta_title }}
+        </h2>
+        <p class="text-lg md:text-xl text-primary-200 mb-10 max-w-2xl mx-auto">
+            {{ t.cta_text }}
+        </p>
+        <a href="{% url 'core:contact' %}" class="inline-flex items-center justify-center gap-2 px-10 py-5 bg-accent-400 text-primary-950 font-semibold text-lg rounded-lg hover:bg-accent-300 transition-all hover:gap-3 shadow-lg shadow-accent-400/20">
+            {{ t.cta_button }}
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+        </a>
+    </div>
+</section>
+{% endblock %}
