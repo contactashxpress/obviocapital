@@ -44,6 +44,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Pour servir les fichiers statiques en production
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'core.middleware.AutoLanguageMiddleware',  # Détection automatique de la langue du visiteur
     'django.middleware.locale.LocaleMiddleware',  # Doit être après SessionMiddleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
