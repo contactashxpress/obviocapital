@@ -103,7 +103,7 @@ TRANSLATIONS = {
         'process_3_desc': 'Nous organisons les rencontres avec les investisseurs sélectionnés et vous accompagnons tout au long des négociations jusqu\'à l\'obtention de votre financement.',
         
         'process_cta': 'Prêt à trouver vos investisseurs ?',
-        'process_text': 'Chaque projet mérite d\'être financé. Quelle que soit votre situation – que vous soyez au stade de l\'idée ou déjà en activité, que vous cherchiez quelques milliers ou plusieurs millions d\'euros – nous avons les connexions pour vous aider à concrétiser vos ambitions.',
+        'process_text': 'Chaque projet mérite d\'être financé. Quelle que soit votre situation – que vous soyez au stade de l\'idée ou déjà en activité, que vous cherchiez quelques milliers ou plusieurs millions de dollars – nous avons les connexions pour vous aider à concrétiser vos ambitions.',
         
         # About Section
         'about_title': 'Votre Passerelle vers les Investisseurs',
@@ -160,7 +160,7 @@ TRANSLATIONS = {
         'footer_links': 'Liens rapides',
         'footer_legal': 'Mentions légales',
         'footer_privacy': 'Confidentialité',
-        'footer_copyright': '© 2025 OBVIO Capital. Tous droits réservés.',
+        'footer_copyright': '© 2026 OBVIO Capital. Tous droits réservés.',
         
         # CTA Section
         'cta_title': 'Votre Projet Mérite d\'Être Financé',
@@ -272,7 +272,7 @@ TRANSLATIONS = {
         'process_3_desc': 'We organize meetings with selected investors and support you throughout negotiations until you secure your funding.',
         
         'process_cta': 'Ready to Find Your Investors?',
-        'process_text': 'Every project deserves funding. Whatever your situation – whether you\'re at the idea stage or already operating, whether you\'re seeking thousands or millions of euros – we have the connections to help you achieve your ambitions.',
+        'process_text': 'Every project deserves funding. Whatever your situation – whether you\'re at the idea stage or already operating, whether you\'re seeking thousands or millions of dollars – we have the connections to help you achieve your ambitions.',
         
         # About Section
         'about_title': 'Your Gateway to Investors',
@@ -329,7 +329,7 @@ TRANSLATIONS = {
         'footer_links': 'Quick Links',
         'footer_legal': 'Legal Notice',
         'footer_privacy': 'Privacy Policy',
-        'footer_copyright': '© 2025 OBVIO Capital. All rights reserved.',
+        'footer_copyright': '© 2026 OBVIO Capital. All rights reserved.',
         
         # CTA Section
         'cta_title': 'Your Project Deserves Funding',
@@ -498,7 +498,7 @@ TRANSLATIONS = {
         'footer_links': 'روابط سريعة',
         'footer_legal': 'الإشعار القانوني',
         'footer_privacy': 'سياسة الخصوصية',
-        'footer_copyright': '© 2025 OBVIO Capital. جميع الحقوق محفوظة.',
+        'footer_copyright': '© 2026 OBVIO Capital. جميع الحقوق محفوظة.',
         
         # CTA Section
         'cta_title': 'مشروعك يستحق التمويل',
