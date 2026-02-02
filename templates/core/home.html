@@ -1,16 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}OBVIO Capital - {{ t.footer_tagline }}{% endblock %}
 
 {% block content %}
 <!-- Hero Section with Background Image -->
 <section class="relative min-h-[90vh] flex items-center bg-primary-950 text-white overflow-hidden">
-    <!-- Background Image -->
+    <!-- Background Image - OBVIO Capital Branding -->
     <div class="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" 
-             alt="Business skyline" 
-             class="w-full h-full object-cover opacity-30">
-        <div class="absolute inset-0 bg-gradient-to-r from-primary-950 via-primary-950/90 to-primary-950/70"></div>
+        <img src="{% static 'images/hero-obvio-capital.png' %}" 
+             alt="OBVIO Capital - Financial Services" 
+             class="w-full h-full object-cover object-center">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-950/90 via-primary-950/50 to-primary-950/30"></div>
     </div>
     
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-24 lg:py-32 w-full">
@@ -36,7 +37,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
                     </a>
-                    <a href="{% url 'core:services' %}" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-medium rounded-lg hover:bg-white/10 hover:border-white/50 transition-all w-full sm:w-auto backdrop-blur-sm">
+                    <a href="{% url 'core:services' %}" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-medium rounded-lg hover:bg-white/10 hover:border-white/50 transition-all w-full sm:w-auto">
                         {{ t.hero_cta_secondary }}
                     </a>
                 </div>
@@ -45,19 +46,19 @@
             <!-- Stats/Trust Indicators -->
             <div class="animate-on-scroll {% if is_rtl %}order-1 lg:order-2{% endif %}">
                 <div class="grid grid-cols-2 gap-4 lg:gap-6">
-                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 sm:p-6 lg:p-8 hover-lift">
+                    <div class="bg-primary-900 border border-primary-700 rounded-xl p-5 sm:p-6 lg:p-8 hover-lift">
                         <div class="text-accent-400 font-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-2">15+</div>
                         <div class="text-primary-200 text-sm lg:text-base">{{ t.stat_years }}</div>
                     </div>
-                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 sm:p-6 lg:p-8 hover-lift">
+                    <div class="bg-primary-900 border border-primary-700 rounded-xl p-5 sm:p-6 lg:p-8 hover-lift">
                         <div class="text-accent-400 font-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-2">200+</div>
                         <div class="text-primary-200 text-sm lg:text-base">{{ t.stat_connections }}</div>
                     </div>
-                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 sm:p-6 lg:p-8 hover-lift">
+                    <div class="bg-primary-900 border border-primary-700 rounded-xl p-5 sm:p-6 lg:p-8 hover-lift">
                         <div class="text-accent-400 font-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-2">$50M</div>
                         <div class="text-primary-200 text-sm lg:text-base">{{ t.stat_capital }}</div>
                     </div>
-                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 sm:p-6 lg:p-8 hover-lift">
+                    <div class="bg-primary-900 border border-primary-700 rounded-xl p-5 sm:p-6 lg:p-8 hover-lift">
                         <div class="text-accent-400 font-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-2">98%</div>
                         <div class="text-primary-200 text-sm lg:text-base">{{ t.stat_satisfaction }}</div>
                     </div>

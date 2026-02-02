@@ -151,7 +151,7 @@ TRANSLATIONS = {
         'contact_info_title': 'Contactez-nous',
         'contact_address': 'Al. Aleje Jerozolimskie 89 / 43, 02-001 Warszawa, Poland',
         'contact_email': 'info@obviocapital.com',
-        'contact_email_2': 'projets@obviocapital.com',
+        'contact_email_2': 'consultant@obviocapital.com',
         'contact_phone': '+48 573 508 442',
         
         # Footer
@@ -320,7 +320,7 @@ TRANSLATIONS = {
         'contact_info_title': 'Contact Us',
         'contact_address': 'Al. Aleje Jerozolimskie 89 / 43, 02-001 Warszawa, Poland',
         'contact_email': 'info@obviocapital.com',
-        'contact_email_2': 'projects@obviocapital.com',
+        'contact_email_2': 'consultant@obviocapital.com',
         'contact_phone': '+48 573 508 442',
         
         # Footer
@@ -489,7 +489,7 @@ TRANSLATIONS = {
         'contact_info_title': 'اتصل بنا',
         'contact_address': 'Al. Aleje Jerozolimskie 89 / 43, 02-001 Warszawa, Poland',
         'contact_email': 'info@obviocapital.com',
-        'contact_email_2': 'projects@obviocapital.com',
+        'contact_email_2': 'consultant@obviocapital.com',
         'contact_phone': '+48 573 508 442',
         
         # Footer
