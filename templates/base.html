@@ -549,6 +549,144 @@
     </footer>
 
     <script>
+        // =====================================================================
+        // DÉTECTION AUTOMATIQUE DE LA LANGUE BASÉE SUR LA DEVISE DU VISITEUR
+        // =====================================================================
+        (function() {
+            const COOKIE_NAME = 'obvio_lang_detected';
+            const CURRENT_LANG = '{{ current_lang }}';
+            
+            // Mapping devise → langue
+            const CURRENCY_TO_LANGUAGE = {
+                // Devises arabes → Arabe (ar)
+                'AED': 'ar', 'SAR': 'ar', 'QAR': 'ar', 'KWD': 'ar', 'BHD': 'ar',
+                'OMR': 'ar', 'JOD': 'ar', 'LBP': 'ar', 'SYP': 'ar', 'IQD': 'ar',
+                'YER': 'ar', 'EGP': 'ar', 'SDG': 'ar', 'LYD': 'ar', 'TND': 'ar',
+                'DZD': 'ar', 'MAD': 'ar', 'MRU': 'ar',
+                
+                // Devises francophones → Français (fr)
+                'XOF': 'fr', 'XAF': 'fr', 'KMF': 'fr', 'DJF': 'fr', 'GNF': 'fr',
+                'MGA': 'fr', 'RWF': 'fr', 'BIF': 'fr', 'HTG': 'fr', 'XPF': 'fr',
+                'CFP': 'fr', 'CHF': 'fr',
+                
+                // Devises anglophones → Anglais (en)
+                'USD': 'en', 'GBP': 'en', 'AUD': 'en', 'CAD': 'en', 'NZD': 'en',
+                'SGD': 'en', 'HKD': 'en', 'ZAR': 'en', 'INR': 'en', 'PHP': 'en',
+                'NGN': 'en', 'KES': 'en', 'GHS': 'en', 'ZMW': 'en', 'BWP': 'en',
+                'MWK': 'en', 'UGX': 'en', 'TZS': 'en', 'JMD': 'en', 'TTD': 'en',
+                'BBD': 'en', 'BSD': 'en', 'BZD': 'en', 'GYD': 'en', 'FJD': 'en',
+                'LKR': 'en', 'PKR': 'en', 'BDT': 'en', 'MMK': 'en', 'MYR': 'en',
+                'JPY': 'en', 'KRW': 'en', 'CNY': 'en', 'TWD': 'en', 'THB': 'en',
+                'IDR': 'en', 'VND': 'en'
+            };
+            
+            // Pays utilisant l'EUR avec langue française
+            const EUR_FRENCH_COUNTRIES = ['FR', 'BE', 'LU', 'MC'];
+            
+            // Vérifie si le cookie existe déjà
+            function hasCookie() {
+                return document.cookie.split(';').some(c => c.trim().startsWith(COOKIE_NAME + '='));
+            }
+            
+            // Définit le cookie pour ne plus rediriger
+            function setCookie() {
+                const expires = new Date();
+                expires.setFullYear(expires.getFullYear() + 1);
+                document.cookie = COOKIE_NAME + '=true; expires=' + expires.toUTCString() + '; path=/; SameSite=Lax';
+            }
+            
+            // Obtient l'URL pour une langue donnée
+            function getUrlForLang(langCode) {
+                const currentPath = window.location.pathname;
+                const langCodes = ['fr', 'en', 'ar'];
+                let pathWithoutLang = currentPath;
+                
+                // Retirer le préfixe de langue existant
+                for (const code of langCodes) {
+                    if (currentPath.startsWith('/' + code + '/')) {
+                        pathWithoutLang = currentPath.substring(code.length + 1);
+                        break;
+                    } else if (currentPath === '/' + code) {
+                        pathWithoutLang = '/';
+                        break;
+                    }
+                }
+                
+                // Construire la nouvelle URL
+                if (langCode === 'fr') {
+                    return pathWithoutLang;
+                } else {
+                    if (pathWithoutLang === '/') {
+                        return '/' + langCode + '/';
+                    }
+                    return '/' + langCode + pathWithoutLang;
+                }
+            }
+            
+            // Détermine la langue à partir de la devise et du pays
+            function getLanguageFromCurrency(currency, countryCode) {
+                if (!currency) return 'fr';
+                
+                // Cas spécial pour l'EUR : dépend du pays
+                if (currency === 'EUR') {
+                    return EUR_FRENCH_COUNTRIES.includes(countryCode) ? 'fr' : 'en';
+                }
+                
+                return CURRENCY_TO_LANGUAGE[currency] || 'en';
+            }
+            
+            // Fonction principale de détection
+            async function detectAndRedirect() {
+                // Ne rien faire si déjà détecté
+                if (hasCookie()) return;
+                
+                try {
+                    // Appel à l'API de géolocalisation IP pour obtenir la devise
+                    const response = await fetch('https://ip-api.com/json/?fields=status,countryCode,currency', {
+                        method: 'GET',
+                        timeout: 3000
+                    });
+                    
+                    if (!response.ok) {
+                        setCookie();
+                        return;
+                    }
+                    
+                    const data = await response.json();
+                    
+                    if (data.status !== 'success') {
+                        setCookie();
+                        return;
+                    }
+                    
+                    const currency = data.currency;
+                    const countryCode = data.countryCode;
+                    const detectedLang = getLanguageFromCurrency(currency, countryCode);
+                    
+                    // Définir le cookie pour ne plus rediriger
+                    setCookie();
+                    
+                    // Rediriger si la langue détectée est différente de l'actuelle
+                    if (detectedLang !== CURRENT_LANG) {
+                        const newUrl = getUrlForLang(detectedLang);
+                        window.location.href = newUrl;
+                    }
+                    
+                } catch (error) {
+                    // En cas d'erreur, définir le cookie pour éviter les tentatives répétées
+                    console.warn('Erreur détection langue par devise:', error);
+                    setCookie();
+                }
+            }
+            
+            // Exécuter au chargement de la page
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', detectAndRedirect);
+            } else {
+                detectAndRedirect();
+            }
+        })();
+        
         // Language switcher - redirect to the correct URL for the selected language
         function switchLanguage(langCode) {
             // Find the selected option to get the pre-computed URL
